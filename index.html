@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ROYAL MOD - Access Portal</title>
 
+<!-- =====================================================
+     GOOGLE ANALYTICS
+===================================================== -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B2BG5NBDNW"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-B2BG5NBDNW');
+</script>
+
+
+<!-- =====================================================
+     STYLE
+===================================================== -->
+
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -15,12 +40,26 @@
 
 body{
     min-height:100vh;
+
     background:
-        radial-gradient(circle at 50% 15%,#211b0b 0%,#090909 35%,#030303 75%);
+        radial-gradient(
+            circle at 50% 15%,
+            #211b0b 0%,
+            #090909 35%,
+            #030303 75%
+        );
+
     color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     display:flex;
+
     justify-content:center;
+
     padding:35px 15px;
 }
 
@@ -29,56 +68,89 @@ body{
     max-width:730px;
 }
 
-/* HEADER */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .header{
     text-align:center;
+
     margin-bottom:28px;
 }
 
 .logo{
     width:70px;
     height:70px;
+
     border:1px solid #f5c542;
+
     border-radius:50%;
+
     margin:auto;
+
     overflow:hidden;
+
     background:#111;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    box-shadow:0 0 25px rgba(245,197,66,.15);
+
+    box-shadow:
+        0 0 25px rgba(245,197,66,.15);
 }
 
 .logo img{
     width:100%;
     height:100%;
+
     object-fit:cover;
 }
 
 .title{
     margin-top:10px;
+
     color:#f5c542;
+
     font-size:30px;
+
     font-weight:800;
+
     letter-spacing:2px;
 }
 
 .subtitle{
     color:#999;
+
     font-size:13px;
+
     margin-top:6px;
 }
 
-/* CARD */
+
+/* =====================================================
+   CARD
+===================================================== */
 
 .card{
     background:rgba(17,17,17,.94);
+
     border:1px solid #5a4715;
+
     border-radius:14px;
+
     padding:25px;
-    box-shadow:0 15px 45px rgba(0,0,0,.45);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.45);
 }
+
+
+/* =====================================================
+   TASK
+===================================================== */
 
 .task{
     margin-bottom:22px;
@@ -90,53 +162,78 @@ body{
 
 .task-number{
     color:#f5c542;
+
     font-size:13px;
+
     font-weight:bold;
+
     margin-bottom:9px;
 }
 
 .task-title{
     font-size:18px;
+
     font-weight:bold;
+
     margin-bottom:7px;
 }
 
 .task-text{
     color:#999;
+
     font-size:13px;
+
     line-height:1.5;
+
     margin-bottom:15px;
 }
 
-/* BUTTON */
+
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .btn{
     width:100%;
+
     border:0;
+
     border-radius:9px;
+
     padding:13px 15px;
+
     font-size:14px;
+
     font-weight:bold;
+
     cursor:pointer;
+
     text-decoration:none;
+
     display:block;
+
     text-align:center;
+
     transition:.2s;
 }
 
 .gold{
     background:#f5c542;
+
     color:#111;
 }
 
 .gold:hover{
     background:#ffd65c;
+
     transform:translateY(-1px);
 }
 
 .dark{
     background:#181818;
+
     color:#f5c542;
+
     border:1px solid #5a4715;
 }
 
@@ -146,22 +243,31 @@ body{
 
 .verify{
     display:none;
+
     margin-top:10px;
 }
 
-/* LOCKED TASK */
+
+/* =====================================================
+   LOCKED TASK
+===================================================== */
 
 .locked{
     opacity:.45;
+
     pointer-events:none;
 }
 
 .lock{
     float:right;
+
     color:#777;
 }
 
-/* ACCESS */
+
+/* =====================================================
+   ACCESS PAGE
+===================================================== */
 
 #accessPage{
     display:none;
@@ -169,35 +275,53 @@ body{
 
 .access-label{
     color:#aaa;
+
     font-size:13px;
+
     margin-bottom:7px;
 }
 
 .credential{
     display:flex;
+
     gap:9px;
+
     margin-bottom:15px;
 }
 
 .credential input{
     flex:1;
+
     min-width:0;
+
     background:#080808;
+
     border:1px solid #292929;
+
     border-radius:8px;
+
     padding:12px;
+
     color:#fff;
+
     font-size:13px;
+
     outline:none;
 }
 
 .copy{
-    width:58px;
+    width:65px;
+
     border:0;
+
     border-radius:8px;
+
     background:#f5c542;
+
     color:#111;
+
     font-weight:bold;
+
     cursor:pointer;
 }
 
@@ -207,21 +331,32 @@ body{
 
 .back{
     margin-top:25px;
+
     text-align:center;
+
     color:#f5c542;
+
     font-size:13px;
+
     cursor:pointer;
 }
 
 .note{
     text-align:center;
+
     color:#777;
+
     font-size:11px;
+
     line-height:1.6;
+
     margin-top:24px;
 }
 
-/* MOBILE */
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:500px){
 
@@ -237,302 +372,535 @@ body{
         padding:20px;
     }
 
+    .credential input{
+        font-size:12px;
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <!-- HEADER -->
 
-    <div class="header">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-        <div class="logo">
-            <img src="royal-mod.png" alt="ROYAL MOD">
-        </div>
+<div class="header">
 
-        <div class="title">
-            ROYAL MOD
-        </div>
+    <div class="logo">
 
-        <div class="subtitle">
-            Access Portal
-        </div>
+        <img
+            src="royal-mod.png"
+            alt="ROYAL MOD"
+        >
 
     </div>
 
 
-    <!-- =========================
-         VERIFICATION PAGE
-    ========================== -->
-
-    <div id="verificationPage" class="card">
-
-        <!-- TASK 1 -->
-
-        <div class="task">
-
-            <div class="task-number">
-                TASK #01
-            </div>
-
-            <div class="task-title">
-                Subscribe to YouTube
-            </div>
-
-            <div class="task-text">
-                Subscribe to the official ROYAL MOD YouTube
-                channel to unlock the next task.
-            </div>
-
-            <a
-                href="https://www.youtube.com/@Royal_mod-89"
-                target="_blank"
-                class="btn gold"
-                onclick="showYTVerify()"
-            >
-                Subscribe on YouTube
-            </a>
-
-            <button
-                id="ytVerify"
-                class="btn dark verify"
-                onclick="verifyYT()"
-            >
-                ✓ I've Subscribed — Verify
-            </button>
-
-        </div>
-
-
-        <!-- TASK 2 -->
-
-        <div
-            id="instagramTask"
-            class="task locked"
-        >
-
-            <div class="task-number">
-                TASK #02
-                <span class="lock">🔒</span>
-            </div>
-
-            <div class="task-title">
-                Follow on Instagram
-            </div>
-
-            <div class="task-text">
-                Follow the official ROYAL MOD Instagram
-                profile to unlock your access.
-            </div>
-
-            <a
-                href="https://www.instagram.com/dileepsingh__rathore?stkn=Y2duY3AxYWQ3Z2Q4&utm_source=qr"
-                target="_blank"
-                class="btn gold"
-                onclick="showInstaVerify()"
-            >
-                Follow on Instagram
-            </a>
-
-            <button
-                id="instaVerify"
-                class="btn dark verify"
-                onclick="verifyInsta()"
-            >
-                ✓ I've Followed — Verify
-            </button>
-
-        </div>
-
+    <div class="title">
+        ROYAL MOD
     </div>
 
 
-    <!-- =========================
-         ACCESS PAGE
-    ========================== -->
-
-    <div id="accessPage" class="card">
-
-        <div class="task-number">
-            ACCESS #001
-        </div>
-
-        <br>
-
-        <!-- USERNAME -->
-
-        <div class="access-label">
-            Username
-        </div>
-
-        <div class="credential">
-
-            <input
-                id="username"
-                type="text"
-                value="AimAi-2_mm7kfm"
-                readonly
-            >
-
-            <button
-                class="copy"
-                onclick="copyValue('username',this)"
-            >
-                COPY
-            </button>
-
-        </div>
-
-
-        <!-- PASSWORD -->
-
-        <div class="access-label">
-            Password
-        </div>
-
-        <div class="credential">
-
-            <input
-                id="password"
-                type="text"
-                value="0903tmk1"
-                readonly
-            >
-
-            <button
-                class="copy"
-                onclick="copyValue('password',this)"
-            >
-                COPY
-            </button>
-
-        </div>
-
-
-        <div
-            class="back"
-            onclick="goBack()"
-        >
-            ← Back to Verification
-        </div>
-
-        <div class="note">
-            Keep your access details private.<br>
-            Do not share credentials publicly.
-        </div>
-
+    <div class="subtitle">
+        Access Portal
     </div>
 
 </div>
 
 
+
+<!-- =====================================================
+     VERIFICATION PAGE
+===================================================== -->
+
+<div
+    id="verificationPage"
+    class="card"
+>
+
+
+    <!-- =================================================
+         TASK 1 - YOUTUBE
+    ================================================== -->
+
+    <div class="task">
+
+
+        <div class="task-number">
+            TASK #01
+        </div>
+
+
+        <div class="task-title">
+            Subscribe to YouTube
+        </div>
+
+
+        <div class="task-text">
+
+            Subscribe to the official
+            ROYAL MOD YouTube channel
+            to unlock the next task.
+
+        </div>
+
+
+        <a
+            href="https://www.youtube.com/@Royal_mod-89"
+            target="_blank"
+            class="btn gold"
+            onclick="showYTVerify()"
+        >
+
+            Subscribe on YouTube
+
+        </a>
+
+
+        <button
+            id="ytVerify"
+            class="btn dark verify"
+            onclick="verifyYT()"
+        >
+
+            ✓ I've Subscribed — Verify
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         TASK 2 - INSTAGRAM
+    ================================================== -->
+
+    <div
+        id="instagramTask"
+        class="task locked"
+    >
+
+
+        <div class="task-number">
+
+            TASK #02
+
+            <span class="lock">
+                🔒
+            </span>
+
+        </div>
+
+
+        <div class="task-title">
+            Follow on Instagram
+        </div>
+
+
+        <div class="task-text">
+
+            Follow the official ROYAL MOD
+            Instagram profile to unlock
+            your access.
+
+        </div>
+
+
+        <a
+            href="https://www.instagram.com/dileepsingh__rathore?stkn=Y2duY3AxYWQ3Z2Q4&utm_source=qr"
+            target="_blank"
+            class="btn gold"
+            onclick="showInstaVerify()"
+        >
+
+            Follow on Instagram
+
+        </a>
+
+
+        <button
+            id="instaVerify"
+            class="btn dark verify"
+            onclick="verifyInsta()"
+        >
+
+            ✓ I've Followed — Verify
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     ACCESS PAGE
+===================================================== -->
+
+<div
+    id="accessPage"
+    class="card"
+>
+
+
+    <div class="task-number">
+        ACCESS #001
+    </div>
+
+
+    <br>
+
+
+    <!-- USERNAME -->
+
+    <div class="access-label">
+        Username
+    </div>
+
+
+    <div class="credential">
+
+
+        <input
+            id="username"
+            type="text"
+            value="AimAi-2_mm7kfm"
+            readonly
+        >
+
+
+        <button
+            class="copy"
+            onclick="copyValue('username',this)"
+        >
+
+            COPY
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- PASSWORD -->
+
+    <div class="access-label">
+        Password
+    </div>
+
+
+    <div class="credential">
+
+
+        <input
+            id="password"
+            type="text"
+            value="0903tmk1"
+            readonly
+        >
+
+
+        <button
+            class="copy"
+            onclick="copyValue('password',this)"
+        >
+
+            COPY
+
+        </button>
+
+
+    </div>
+
+
+
+    <div
+        class="back"
+        onclick="goBack()"
+    >
+
+        ← Back to Verification
+
+    </div>
+
+
+    <div class="note">
+
+        Keep your access details private.<br>
+
+        Do not share credentials publicly.
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* =========================
-   YOUTUBE
-========================= */
+
+/* =====================================================
+   YOUTUBE BUTTON
+===================================================== */
 
 function showYTVerify(){
 
-    document.getElementById("ytVerify").style.display="block";
+    document.getElementById(
+        "ytVerify"
+    ).style.display = "block";
+
+
+    /*
+       Google Analytics event
+    */
+
+    if(typeof gtag === "function"){
+
+        gtag(
+            "event",
+            "youtube_click",
+            {
+                event_category:"verification",
+                event_label:"YouTube Subscribe"
+            }
+        );
+
+    }
 
 }
 
 
-/* =========================
+
+/* =====================================================
    VERIFY YOUTUBE
-========================= */
+===================================================== */
 
 function verifyYT(){
 
     const task =
-        document.getElementById("instagramTask");
+        document.getElementById(
+            "instagramTask"
+        );
 
-    task.classList.remove("locked");
+
+    task.classList.remove(
+        "locked"
+    );
+
 
     const button =
-        document.getElementById("ytVerify");
+        document.getElementById(
+            "ytVerify"
+        );
 
-    button.innerText="✓ YouTube Verified";
 
-    button.disabled=true;
+    button.innerText =
+        "✓ YouTube Verified";
+
+
+    button.disabled = true;
+
+
+    /*
+       Google Analytics event
+    */
+
+    if(typeof gtag === "function"){
+
+        gtag(
+            "event",
+            "youtube_verified",
+            {
+                event_category:"verification"
+            }
+        );
+
+    }
 
 }
 
 
-/* =========================
-   INSTAGRAM
-========================= */
+
+/* =====================================================
+   INSTAGRAM BUTTON
+===================================================== */
 
 function showInstaVerify(){
 
-    document.getElementById("instaVerify").style.display="block";
+    document.getElementById(
+        "instaVerify"
+    ).style.display = "block";
+
+
+    /*
+       Google Analytics event
+    */
+
+    if(typeof gtag === "function"){
+
+        gtag(
+            "event",
+            "instagram_click",
+            {
+                event_category:"verification",
+                event_label:"Instagram Follow"
+            }
+        );
+
+    }
 
 }
 
 
-/* =========================
+
+/* =====================================================
    VERIFY INSTAGRAM
-========================= */
+===================================================== */
 
 function verifyInsta(){
 
     document.getElementById(
         "verificationPage"
-    ).style.display="none";
+    ).style.display = "none";
+
 
     document.getElementById(
         "accessPage"
-    ).style.display="block";
+    ).style.display = "block";
+
+
+    /*
+       Google Analytics event
+    */
+
+    if(typeof gtag === "function"){
+
+        gtag(
+            "event",
+            "access_unlocked",
+            {
+                event_category:"verification",
+                event_label:"Access Page Opened"
+            }
+        );
+
+    }
 
 }
 
 
-/* =========================
-   COPY
-========================= */
+
+/* =====================================================
+   COPY USERNAME / PASSWORD
+===================================================== */
 
 function copyValue(id,button){
 
     const value =
         document.getElementById(id).value;
 
+
     navigator.clipboard.writeText(value);
 
-    const old =
+
+    const oldText =
         button.innerText;
 
-    button.innerText="COPIED";
 
-    setTimeout(function(){
+    button.innerText =
+        "COPIED";
 
-        button.innerText=old;
 
-    },1500);
+    /*
+       Google Analytics event
+    */
+
+    if(typeof gtag === "function"){
+
+        gtag(
+            "event",
+            "credential_copied",
+            {
+                event_category:"access",
+                event_label:id
+            }
+        );
+
+    }
+
+
+    setTimeout(
+        function(){
+
+            button.innerText =
+                oldText;
+
+        },
+        1500
+    );
 
 }
 
 
-/* =========================
-   BACK
-========================= */
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
 
 function goBack(){
 
     document.getElementById(
         "accessPage"
-    ).style.display="none";
+    ).style.display = "none";
+
 
     document.getElementById(
         "verificationPage"
-    ).style.display="block";
+    ).style.display = "block";
+
+
+    /*
+       Google Analytics event
+    */
+
+    if(typeof gtag === "function"){
+
+        gtag(
+            "event",
+            "back_to_verification",
+            {
+                event_category:"navigation"
+            }
+        );
+
+    }
 
 }
 
 </script>
+
 
 </body>
 </html>
