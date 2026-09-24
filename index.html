@@ -1,26 +1,52 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>ROYAL MOD - Access Portal</title>
 
-<!-- GOOGLE ANALYTICS -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B2BG5NBDNW"></script>
+
+<!-- ==================================================
+     GOOGLE ANALYTICS
+================================================== -->
+
+<script async
+src="https://www.googletagmanager.com/gtag/js?id=G-B2BG5NBDNW">
+</script>
+
 <script>
-window.dataLayer = window.dataLayer || [];
+
+window.dataLayer =
+window.dataLayer || [];
 
 function gtag(){
     dataLayer.push(arguments);
 }
 
-gtag("js", new Date());
-gtag("config", "G-B2BG5NBDNW");
+gtag(
+    "js",
+    new Date()
+);
+
+gtag(
+    "config",
+    "G-B2BG5NBDNW"
+);
+
 </script>
 
+
 <style>
+
+/* ==================================================
+   BASIC
+================================================== */
 
 *{
     box-sizing:border-box;
@@ -29,513 +55,841 @@ gtag("config", "G-B2BG5NBDNW");
 }
 
 body{
+
     min-height:100vh;
+
     background:
-        radial-gradient(circle at 50% 15%,#211b0b 0%,#090909 35%,#030303 75%);
+    radial-gradient(
+        circle at 50% 15%,
+        #211b0b 0%,
+        #090909 35%,
+        #030303 75%
+    );
+
     color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
     display:flex;
+
     justify-content:center;
+
     padding:35px 15px;
+
 }
+
 
 .container{
+
     width:100%;
+
     max-width:730px;
+
 }
+
+
+/* ==================================================
+   HEADER
+================================================== */
 
 .header{
+
     text-align:center;
+
     margin-bottom:28px;
+
 }
+
 
 .logo{
+
     width:70px;
+
     height:70px;
-    border:1px solid #f5c542;
+
+    border:
+    1px solid #f5c542;
+
     border-radius:50%;
+
     margin:auto;
+
     overflow:hidden;
+
     background:#111;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    box-shadow:0 0 25px rgba(245,197,66,.15);
+
 }
+
 
 .logo img{
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
 }
+
 
 .title{
+
     margin-top:10px;
+
     color:#f5c542;
+
     font-size:30px;
+
     font-weight:800;
+
     letter-spacing:2px;
+
 }
+
 
 .subtitle{
+
     color:#999;
+
     font-size:13px;
+
     margin-top:6px;
+
 }
+
+
+/* ==================================================
+   CARD
+================================================== */
 
 .card{
-    background:rgba(17,17,17,.94);
-    border:1px solid #5a4715;
+
+    background:
+    rgba(17,17,17,.94);
+
+    border:
+    1px solid #5a4715;
+
     border-radius:14px;
+
     padding:25px;
-    box-shadow:0 15px 45px rgba(0,0,0,.45);
+
+    box-shadow:
+    0 15px 45px
+    rgba(0,0,0,.45);
+
 }
+
+
+/* ==================================================
+   TASK
+================================================== */
 
 .task{
+
     margin-bottom:22px;
+
 }
 
-.task:last-child{
-    margin-bottom:0;
-}
 
 .task-number{
+
     color:#f5c542;
+
     font-size:13px;
+
     font-weight:bold;
+
     margin-bottom:9px;
+
 }
+
 
 .task-title{
+
     font-size:18px;
+
     font-weight:bold;
+
     margin-bottom:7px;
+
 }
+
 
 .task-text{
+
     color:#999;
+
     font-size:13px;
+
     line-height:1.5;
+
     margin-bottom:15px;
+
 }
+
 
 .btn{
+
     width:100%;
+
     border:0;
+
     border-radius:9px;
+
     padding:13px 15px;
+
     font-size:14px;
+
     font-weight:bold;
+
     cursor:pointer;
+
     text-decoration:none;
+
     display:block;
+
     text-align:center;
-    transition:.2s;
+
 }
+
 
 .gold{
+
     background:#f5c542;
+
     color:#111;
+
 }
+
 
 .gold:hover{
+
     background:#ffd65c;
-    transform:translateY(-1px);
+
 }
+
 
 .dark{
+
     background:#181818;
+
     color:#f5c542;
-    border:1px solid #5a4715;
+
+    border:
+    1px solid #5a4715;
+
 }
 
-.dark:hover{
-    background:#222;
-}
 
 .verify{
+
     display:none;
+
     margin-top:10px;
+
 }
+
 
 .locked{
+
     opacity:.45;
+
     pointer-events:none;
+
 }
+
 
 .lock{
+
     float:right;
+
     color:#777;
+
 }
 
-/* ACCESS */
+
+/* ==================================================
+   ACCESS
+================================================== */
 
 #accessPage{
+
     display:none;
+
 }
+
 
 .access-label{
+
     color:#aaa;
+
     font-size:13px;
+
     margin-bottom:7px;
+
 }
+
 
 .credential{
+
     display:flex;
+
     gap:9px;
+
     margin-bottom:15px;
+
 }
+
 
 .credential input{
+
     flex:1;
+
     min-width:0;
+
     background:#080808;
-    border:1px solid #292929;
+
+    border:
+    1px solid #292929;
+
     border-radius:8px;
+
     padding:12px;
+
     color:#fff;
+
     font-size:13px;
+
     outline:none;
+
 }
+
 
 .copy{
-    width:65px;
+
+    width:75px;
+
     border:0;
+
     border-radius:8px;
+
     background:#f5c542;
+
     color:#111;
+
     font-weight:bold;
+
     cursor:pointer;
+
 }
 
-.copy:hover{
-    background:#ffd65c;
-}
 
 .copy:disabled{
-    opacity:.5;
+
+    opacity:.55;
+
     cursor:not-allowed;
+
 }
+
 
 .counter{
+
     text-align:center;
+
     color:#999;
+
     font-size:12px;
+
     margin-top:8px;
+
 }
+
 
 .counter span{
+
     color:#f5c542;
+
     font-weight:bold;
+
 }
+
 
 .sold{
+
     display:none;
+
     text-align:center;
+
     padding:20px 5px;
+
 }
+
 
 .sold-title{
+
     color:#ff4d4d;
+
     font-size:22px;
+
     font-weight:bold;
+
     margin-bottom:8px;
+
 }
+
 
 .sold-text{
+
     color:#999;
+
     font-size:13px;
+
 }
+
 
 .back{
+
     margin-top:25px;
+
     text-align:center;
+
     color:#f5c542;
+
     font-size:13px;
+
     cursor:pointer;
+
 }
 
-.note{
-    text-align:center;
-    color:#777;
-    font-size:11px;
-    line-height:1.6;
-    margin-top:24px;
-}
 
 .error{
+
     display:none;
+
     text-align:center;
+
     color:#ff7777;
+
     font-size:13px;
+
     padding:15px 0;
+
 }
+
 
 @media(max-width:500px){
 
     body{
+
         padding:25px 12px;
+
     }
 
     .title{
+
         font-size:25px;
+
     }
 
     .card{
+
         padding:20px;
+
     }
 
-    .credential input{
-        font-size:12px;
-    }
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-<!-- HEADER -->
+
+<!-- ==================================================
+     HEADER
+================================================== -->
 
 <div class="header">
 
     <div class="logo">
-        <img src="royal-mod.png" alt="ROYAL MOD">
+
+        <img
+        src="royal-mod.png"
+        alt="ROYAL MOD">
+
     </div>
+
 
     <div class="title">
+
         ROYAL MOD
+
     </div>
 
+
     <div class="subtitle">
+
         Access Portal
+
     </div>
 
 </div>
+
 
 
 <!-- ==================================================
      VERIFICATION
 ================================================== -->
 
-<div id="verificationPage" class="card">
+<div
+id="verificationPage"
+class="card">
+
 
     <!-- YOUTUBE -->
 
     <div class="task">
 
         <div class="task-number">
+
             TASK #01
+
         </div>
+
 
         <div class="task-title">
+
             Subscribe to YouTube
+
         </div>
+
 
         <div class="task-text">
-            Subscribe to the official ROYAL MOD YouTube
-            channel to unlock the next task.
+
+            Subscribe to the official ROYAL MOD
+            YouTube channel to unlock the next task.
+
         </div>
 
+
         <a
-            href="https://www.youtube.com/@Royal_mod-89"
-            target="_blank"
-            class="btn gold"
-            onclick="showYTVerify()"
-        >
+        href="https://www.youtube.com/@Royal_mod-89"
+        target="_blank"
+        class="btn gold"
+        onclick="showYTVerify()">
+
             Subscribe on YouTube
+
         </a>
 
+
         <button
-            id="ytVerify"
-            class="btn dark verify"
-            onclick="verifyYT()"
-        >
+        id="ytVerify"
+        class="btn dark verify"
+        onclick="verifyYT()">
+
             ✓ I've Subscribed — Verify
+
         </button>
 
     </div>
+
 
 
     <!-- INSTAGRAM -->
 
     <div
-        id="instagramTask"
-        class="task locked"
-    >
+    id="instagramTask"
+    class="task locked">
+
 
         <div class="task-number">
+
             TASK #02
-            <span class="lock">🔒</span>
+
+            <span class="lock">
+                🔒
+            </span>
+
         </div>
+
 
         <div class="task-title">
+
             Follow on Instagram
+
         </div>
+
 
         <div class="task-text">
-            Follow the official ROYAL MOD Instagram
-            profile to unlock your access.
+
+            Follow the official ROYAL MOD
+            Instagram profile to unlock your access.
+
         </div>
 
+
         <a
-            href="https://www.instagram.com/dileepsingh__rathore?stkn=Y2duY3AxYWQ3Z2Q4&utm_source=qr"
-            target="_blank"
-            class="btn gold"
-            onclick="showInstaVerify()"
-        >
+        href="https://www.instagram.com/dileepsingh__rathore?stkn=Y2duY3AxYWQ3Z2Q4&utm_source=qr"
+        target="_blank"
+        class="btn gold"
+        onclick="showInstaVerify()">
+
             Follow on Instagram
+
         </a>
 
+
         <button
-            id="instaVerify"
-            class="btn dark verify"
-            onclick="verifyInsta()"
-        >
+        id="instaVerify"
+        class="btn dark verify"
+        onclick="verifyInsta()">
+
             ✓ I've Followed — Verify
+
         </button>
 
     </div>
 
 </div>
+
 
 
 <!-- ==================================================
      ACCESS PAGE
 ================================================== -->
 
-<div id="accessPage" class="card">
+<div
+id="accessPage"
+class="card">
+
 
     <div id="availableContent">
 
+
         <div class="task-number">
+
             ACCESS #001
+
         </div>
 
+
         <br>
+
 
         <!-- USERNAME -->
 
         <div class="access-label">
+
             Username
+
         </div>
+
 
         <div class="credential">
 
             <input
-                id="username"
-                type="text"
-                readonly
-            >
+            id="username"
+            type="text"
+            readonly>
+
 
             <button
-                id="usernameCopy"
-                class="copy"
-                onclick="claimAndCopy('username')"
-            >
+            id="usernameCopy"
+            class="copy"
+            onclick="claimAndCopy('username')">
+
                 COPY
+
             </button>
 
         </div>
+
 
 
         <!-- PASSWORD -->
 
         <div class="access-label">
+
             Password
+
         </div>
+
 
         <div class="credential">
 
             <input
-                id="password"
-                type="text"
-                readonly
-            >
+            id="password"
+            type="text"
+            readonly>
+
 
             <button
-                id="passwordCopy"
-                class="copy"
-                onclick="claimAndCopy('password')"
-            >
+            id="passwordCopy"
+            class="copy"
+            onclick="claimAndCopy('password')">
+
                 COPY
+
             </button>
 
         </div>
 
 
+
+        <!-- COUNTER -->
+
         <div class="counter">
 
-            <span id="copyCount">0</span>
+            <span id="copyCount">
+                0
+            </span>
+
             /
-            <span id="maxCount">500</span>
+
+            <span id="maxCount">
+                500
+            </span>
+
             claimed
 
         </div>
 
 
+
         <div
-            class="back"
-            onclick="goBack()"
-        >
+        class="back"
+        onclick="goBack()">
+
             ← Back to Verification
+
         </div>
 
     </div>
 
 
-    <!-- SOLD OUT -->
 
-    <div id="soldContent" class="sold">
+    <!-- SOLD -->
+
+    <div
+    id="soldContent"
+    class="sold">
+
 
         <div class="sold-title">
+
             🔴 SOLD OUT
+
         </div>
+
 
         <div class="sold-text">
+
             All 500 access slots have been claimed.
+
         </div>
+
 
         <div class="counter">
+
             500 / 500
+
         </div>
+
 
         <div
-            class="back"
-            onclick="goBack()"
-        >
+        class="back"
+        onclick="goBack()">
+
             ← Back to Verification
+
         </div>
 
     </div>
 
 
-    <div id="apiError" class="error">
-        Unable to load access details. Please try again.
+
+    <!-- ERROR -->
+
+    <div
+    id="apiError"
+    class="error">
+
+        Unable to load access details.
+        Please try again.
+
     </div>
 
 </div>
 
+
 </div>
+
 
 
 <script>
 
 /* ==================================================
-   APPS SCRIPT URL
+   GOOGLE APPS SCRIPT
 ================================================== */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbxNn5QpjddagZVi8roZt_HtfaOeV4BHvkGHFJTEqX8afa-aO6jcLdheN9Hy4gYnKAYJGw/exec";
 
 
+
 /* ==================================================
-   LOCAL CLAIM
+   CLAIM ID
 ================================================== */
 
-const CLAIM_KEY = "royal_mod_claimed_v1";
+/*
+   Same browser = same Claim ID.
+
+   Username + Password:
+   SAME CLAIM = 1 count.
+*/
+
+function getClaimId(){
+
+    let claimId =
+        localStorage.getItem(
+            "royal_mod_claim_id"
+        );
+
+
+    if(!claimId){
+
+        claimId =
+            crypto.randomUUID();
+
+        localStorage.setItem(
+            "royal_mod_claim_id",
+            claimId
+        );
+
+    }
+
+
+    return claimId;
+
+}
+
 
 
 /* ==================================================
@@ -547,15 +901,6 @@ function showYTVerify(){
     document.getElementById(
         "ytVerify"
     ).style.display = "block";
-
-
-    if(typeof gtag === "function"){
-
-        gtag("event","youtube_click",{
-            event_category:"verification"
-        });
-
-    }
 
 }
 
@@ -570,19 +915,15 @@ function verifyYT(){
     const button =
         document.getElementById("ytVerify");
 
+
     button.innerText =
         "✓ YouTube Verified";
 
+
     button.disabled = true;
 
-
-    if(typeof gtag === "function"){
-
-        gtag("event","youtube_verified");
-
-    }
-
 }
+
 
 
 /* ==================================================
@@ -595,15 +936,6 @@ function showInstaVerify(){
         "instaVerify"
     ).style.display = "block";
 
-
-    if(typeof gtag === "function"){
-
-        gtag("event","instagram_click",{
-            event_category:"verification"
-        });
-
-    }
-
 }
 
 
@@ -613,6 +945,7 @@ function verifyInsta(){
         "verificationPage"
     ).style.display = "none";
 
+
     document.getElementById(
         "accessPage"
     ).style.display = "block";
@@ -620,14 +953,8 @@ function verifyInsta(){
 
     loadAccess();
 
-
-    if(typeof gtag === "function"){
-
-        gtag("event","access_page_opened");
-
-    }
-
 }
+
 
 
 /* ==================================================
@@ -641,13 +968,14 @@ async function loadAccess(){
         const response =
             await fetch(API_URL);
 
+
         const data =
             await response.json();
 
 
         if(data.status === "SOLD"){
 
-            showSold(data);
+            showSold();
 
             return;
 
@@ -658,119 +986,14 @@ async function loadAccess(){
 
             document.getElementById(
                 "username"
-            ).value = data.username;
+            ).value =
+                data.username;
 
 
             document.getElementById(
                 "password"
-            ).value = data.password;
-
-
-            document.getElementById(
-                "copyCount"
-            ).innerText = data.copies;
-
-
-            document.getElementById(
-                "maxCount"
-            ).innerText = data.maxCopies;
-
-
-            /*
-              If this browser already claimed
-            */
-
-            if(localStorage.getItem(CLAIM_KEY)){
-
-                disableCopyButtons();
-
-            }
-
-            return;
-
-        }
-
-
-        showError();
-
-    }
-    catch(error){
-
-        console.error(error);
-
-        showError();
-
-    }
-
-}
-
-
-/* ==================================================
-   CLAIM + COPY
-================================================== */
-
-async function claimAndCopy(field){
-
-    /*
-      One claim per browser
-    */
-
-    if(localStorage.getItem(CLAIM_KEY)){
-
-        copyOnly(field);
-
-        return;
-
-    }
-
-
-    const button =
-        field === "username"
-            ? document.getElementById("usernameCopy")
-            : document.getElementById("passwordCopy");
-
-
-    button.disabled = true;
-
-    button.innerText = "...";
-
-
-    try{
-
-        const response =
-            await fetch(API_URL,{
-
-                method:"POST",
-
-                headers:{
-                    "Content-Type":
-                    "text/plain;charset=utf-8"
-                },
-
-                body:"claim"
-
-            });
-
-
-        const data =
-            await response.json();
-
-
-        if(data.status === "SOLD"){
-
-            showSold(data);
-
-            return;
-
-        }
-
-
-        if(data.success){
-
-            localStorage.setItem(
-                CLAIM_KEY,
-                "1"
-            );
+            ).value =
+                data.password;
 
 
             document.getElementById(
@@ -779,32 +1002,152 @@ async function claimAndCopy(field){
                 data.copies;
 
 
-            copyOnly(field);
+            document.getElementById(
+                "maxCount"
+            ).innerText =
+                data.maxCopies;
 
 
-            disableCopyButtons();
+            return;
+
+        }
 
 
-            if(typeof gtag === "function"){
+        showError();
 
-                gtag(
-                    "event",
-                    "credential_claimed",
-                    {
-                        event_category:"access",
-                        event_label:field
-                    }
-                );
+    }
+    catch(error){
 
-            }
+        console.error(error);
 
+        showError();
+
+    }
+
+}
+
+
+
+/* ==================================================
+   CLAIM + COPY
+================================================== */
+
+async function claimAndCopy(field){
+
+    const claimId =
+        getClaimId();
+
+
+    const button =
+        field === "username"
+        ? document.getElementById(
+            "usernameCopy"
+          )
+        : document.getElementById(
+            "passwordCopy"
+          );
+
+
+    button.disabled = true;
+
+    button.innerText =
+        "WAIT";
+
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                        "text/plain;charset=utf-8"
+                    },
+
+                    body:JSON.stringify({
+
+                        claimId:claimId
+
+                    })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+
+        /* =========================
+           SOLD
+        ========================= */
+
+        if(data.status === "SOLD"){
+
+            showSold();
+
+            return;
+
+        }
+
+
+
+        /* =========================
+           CLAIM SUCCESS
+        ========================= */
+
+        if(data.success){
+
+            document.getElementById(
+                "copyCount"
+            ).innerText =
+                data.copies;
+
+
+            await copyText(field);
+
+
+            /*
+              IMPORTANT:
+
+              Both buttons remain usable.
+
+              Because server knows this Claim ID,
+              second COPY will NOT increase count.
+            */
+
+            button.disabled = false;
+
+            button.innerText =
+                "COPIED";
+
+
+            setTimeout(
+                function(){
+
+                    button.innerText =
+                        "COPY";
+
+                },
+                1500
+            );
+
+
+            /*
+              If 500 reached
+            */
 
             if(data.status === "SOLD"){
 
                 setTimeout(
                     function(){
 
-                        showSold(data);
+                        showSold();
 
                     },
                     1000
@@ -813,117 +1156,155 @@ async function claimAndCopy(field){
             }
 
         }
+        else{
+
+            button.disabled = false;
+
+            button.innerText =
+                "COPY";
+
+        }
 
     }
     catch(error){
 
         console.error(error);
 
+
         button.disabled = false;
 
-        button.innerText = "COPY";
+        button.innerText =
+            "COPY";
+
+
+        alert(
+            "Copy failed. Please try again."
+        );
 
     }
 
 }
 
 
+
 /* ==================================================
-   COPY WITHOUT COUNTING
+   COPY TEXT
 ================================================== */
 
-function copyOnly(field){
+async function copyText(field){
 
     const input =
         document.getElementById(field);
 
 
-    navigator.clipboard.writeText(
-        input.value
-    );
+    const text =
+        input.value;
 
 
-    const button =
-        field === "username"
-            ? document.getElementById("usernameCopy")
-            : document.getElementById("passwordCopy");
+    try{
 
+        if(
+            navigator.clipboard &&
+            window.isSecureContext
+        ){
 
-    const oldText =
-        button.innerText;
+            await navigator.clipboard.writeText(
+                text
+            );
 
+        }
+        else{
 
-    button.innerText =
-        "COPIED";
+            fallbackCopy(text);
 
+        }
 
-    setTimeout(
-        function(){
+    }
+    catch(error){
 
-            button.innerText =
-                oldText;
+        fallbackCopy(text);
 
-        },
-        1500
-    );
+    }
 
 }
+
 
 
 /* ==================================================
-   DISABLE COPY
+   FALLBACK COPY
 ================================================== */
 
-function disableCopyButtons(){
+function fallbackCopy(text){
 
-    document.getElementById(
-        "usernameCopy"
-    ).disabled = true;
-
-
-    document.getElementById(
-        "passwordCopy"
-    ).disabled = true;
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
 
 
-    document.getElementById(
-        "usernameCopy"
-    ).innerText = "COPIED";
+    textarea.value =
+        text;
 
 
-    document.getElementById(
-        "passwordCopy"
-    ).innerText = "COPIED";
+    textarea.style.position =
+        "fixed";
+
+
+    textarea.style.left =
+        "-9999px";
+
+
+    document.body.appendChild(
+        textarea
+    );
+
+
+    textarea.focus();
+
+    textarea.select();
+
+
+    try{
+
+        document.execCommand(
+            "copy"
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
+
+
+    document.body.removeChild(
+        textarea
+    );
 
 }
+
 
 
 /* ==================================================
    SOLD OUT
 ================================================== */
 
-function showSold(data){
+function showSold(){
 
     document.getElementById(
         "availableContent"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "soldContent"
-    ).style.display = "block";
-
-
-    if(typeof gtag === "function"){
-
-        gtag(
-            "event",
-            "sold_out"
-        );
-
-    }
+    ).style.display =
+        "block";
 
 }
+
 
 
 /* ==================================================
@@ -934,14 +1315,17 @@ function showError(){
 
     document.getElementById(
         "availableContent"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "apiError"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 }
+
 
 
 /* ==================================================
@@ -952,16 +1336,20 @@ function goBack(){
 
     document.getElementById(
         "accessPage"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "verificationPage"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 }
 
 </script>
 
+
 </body>
+
 </html>
