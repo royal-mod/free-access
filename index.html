@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -554,7 +553,7 @@ body{
 
 
 <!-- ==================================================
-     VERIFICATION
+     VERIFICATION PAGE
 ================================================== -->
 
 <div
@@ -562,7 +561,9 @@ id="verificationPage"
 class="card">
 
 
-    <!-- YOUTUBE -->
+    <!-- =================================================
+         TASK 01 - YOUTUBE
+    ================================================== -->
 
     <div class="task">
 
@@ -612,10 +613,12 @@ class="card">
 
 
 
-    <!-- INSTAGRAM -->
+    <!-- =================================================
+         TASK 02 - TELEGRAM
+    ================================================== -->
 
     <div
-    id="instagramTask"
+    id="telegramTask"
     class="task locked">
 
 
@@ -632,36 +635,36 @@ class="card">
 
         <div class="task-title">
 
-            Follow on Instagram
+            Join Telegram
 
         </div>
 
 
         <div class="task-text">
 
-            Follow the official ROYAL MOD
-            Instagram profile to unlock your access.
+            Join the official ROYAL MOD
+            Telegram channel to unlock your access.
 
         </div>
 
 
         <a
-        href="https://www.instagram.com/dileepsingh__rathore?stkn=Y2duY3AxYWQ3Z2Q4&utm_source=qr"
+        href="https://t.me/RoyalMod_Store"
         target="_blank"
         class="btn gold"
-        onclick="showInstaVerify()">
+        onclick="showTelegramVerify()">
 
-            Follow on Instagram
+            Join on Telegram
 
         </a>
 
 
         <button
-        id="instaVerify"
+        id="telegramVerify"
         class="btn dark verify"
-        onclick="verifyInsta()">
+        onclick="verifyTelegram()">
 
-            ✓ I've Followed — Verify
+            ✓ I've Joined — Verify
 
         </button>
 
@@ -693,7 +696,9 @@ class="card">
         <br>
 
 
-        <!-- USERNAME -->
+        <!-- =================================================
+             USERNAME
+        ================================================== -->
 
         <div class="access-label">
 
@@ -723,7 +728,9 @@ class="card">
 
 
 
-        <!-- PASSWORD -->
+        <!-- =================================================
+             PASSWORD
+        ================================================== -->
 
         <div class="access-label">
 
@@ -753,7 +760,9 @@ class="card">
 
 
 
-        <!-- COUNTER -->
+        <!-- =================================================
+             COUNTER
+        ================================================== -->
 
         <div class="counter">
 
@@ -785,7 +794,9 @@ class="card">
 
 
 
-    <!-- SOLD -->
+    <!-- ==================================================
+         SOLD OUT
+    ================================================== -->
 
     <div
     id="soldContent"
@@ -825,7 +836,9 @@ class="card">
 
 
 
-    <!-- ERROR -->
+    <!-- ==================================================
+         ERROR
+    ================================================== -->
 
     <div
     id="apiError"
@@ -858,13 +871,6 @@ const API_URL =
    CLAIM ID
 ================================================== */
 
-/*
-   Same browser = same Claim ID.
-
-   Username + Password:
-   SAME CLAIM = 1 count.
-*/
-
 function getClaimId(){
 
     let claimId =
@@ -875,8 +881,28 @@ function getClaimId(){
 
     if(!claimId){
 
-        claimId =
-            crypto.randomUUID();
+        if(
+            window.crypto &&
+            crypto.randomUUID
+        ){
+
+            claimId =
+                crypto.randomUUID();
+
+        }
+
+        else{
+
+            claimId =
+                Date.now().toString(36)
+                + "-"
+                +
+                Math.random()
+                .toString(36)
+                .substring(2);
+
+        }
+
 
         localStorage.setItem(
             "royal_mod_claim_id",
@@ -900,7 +926,8 @@ function showYTVerify(){
 
     document.getElementById(
         "ytVerify"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 }
 
@@ -908,47 +935,55 @@ function showYTVerify(){
 function verifyYT(){
 
     document.getElementById(
-        "instagramTask"
-    ).classList.remove("locked");
+        "telegramTask"
+    ).classList.remove(
+        "locked"
+    );
 
 
     const button =
-        document.getElementById("ytVerify");
+        document.getElementById(
+            "ytVerify"
+        );
 
 
     button.innerText =
         "✓ YouTube Verified";
 
 
-    button.disabled = true;
+    button.disabled =
+        true;
 
 }
 
 
 
 /* ==================================================
-   INSTAGRAM
+   TELEGRAM
 ================================================== */
 
-function showInstaVerify(){
+function showTelegramVerify(){
 
     document.getElementById(
-        "instaVerify"
-    ).style.display = "block";
+        "telegramVerify"
+    ).style.display =
+        "block";
 
 }
 
 
-function verifyInsta(){
+function verifyTelegram(){
 
     document.getElementById(
         "verificationPage"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "accessPage"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 
     loadAccess();
@@ -966,14 +1001,23 @@ async function loadAccess(){
     try{
 
         const response =
-            await fetch(API_URL);
+            await fetch(
+                API_URL
+            );
 
 
         const data =
             await response.json();
 
 
-        if(data.status === "SOLD"){
+        /* =========================
+           SOLD
+        ========================= */
+
+        if(
+            data.status ===
+            "SOLD"
+        ){
 
             showSold();
 
@@ -982,7 +1026,14 @@ async function loadAccess(){
         }
 
 
-        if(data.status === "AVAILABLE"){
+        /* =========================
+           AVAILABLE
+        ========================= */
+
+        if(
+            data.status ===
+            "AVAILABLE"
+        ){
 
             document.getElementById(
                 "username"
@@ -1016,9 +1067,12 @@ async function loadAccess(){
         showError();
 
     }
+
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
 
         showError();
 
@@ -1032,7 +1086,9 @@ async function loadAccess(){
    CLAIM + COPY
 ================================================== */
 
-async function claimAndCopy(field){
+async function claimAndCopy(
+    field
+){
 
     const claimId =
         getClaimId();
@@ -1040,15 +1096,23 @@ async function claimAndCopy(field){
 
     const button =
         field === "username"
-        ? document.getElementById(
+
+        ?
+
+        document.getElementById(
             "usernameCopy"
-          )
-        : document.getElementById(
+        )
+
+        :
+
+        document.getElementById(
             "passwordCopy"
-          );
+        );
 
 
-    button.disabled = true;
+    button.disabled =
+        true;
+
 
     button.innerText =
         "WAIT";
@@ -1061,18 +1125,21 @@ async function claimAndCopy(field){
                 API_URL,
                 {
 
-                    method:"POST",
+                    method:
+                        "POST",
 
                     headers:{
                         "Content-Type":
                         "text/plain;charset=utf-8"
                     },
 
-                    body:JSON.stringify({
+                    body:
+                        JSON.stringify({
 
-                        claimId:claimId
+                            claimId:
+                                claimId
 
-                    })
+                        })
 
                 }
             );
@@ -1082,12 +1149,14 @@ async function claimAndCopy(field){
             await response.json();
 
 
-
         /* =========================
            SOLD
         ========================= */
 
-        if(data.status === "SOLD"){
+        if(
+            data.status ===
+            "SOLD"
+        ){
 
             showSold();
 
@@ -1096,12 +1165,13 @@ async function claimAndCopy(field){
         }
 
 
-
         /* =========================
-           CLAIM SUCCESS
+           SUCCESS
         ========================= */
 
-        if(data.success){
+        if(
+            data.success
+        ){
 
             document.getElementById(
                 "copyCount"
@@ -1109,19 +1179,14 @@ async function claimAndCopy(field){
                 data.copies;
 
 
-            await copyText(field);
+            await copyText(
+                field
+            );
 
 
-            /*
-              IMPORTANT:
+            button.disabled =
+                false;
 
-              Both buttons remain usable.
-
-              Because server knows this Claim ID,
-              second COPY will NOT increase count.
-            */
-
-            button.disabled = false;
 
             button.innerText =
                 "COPIED";
@@ -1138,11 +1203,14 @@ async function claimAndCopy(field){
             );
 
 
-            /*
-              If 500 reached
-            */
+            /* =====================
+               LAST SLOT
+            ===================== */
 
-            if(data.status === "SOLD"){
+            if(
+                data.status ===
+                "SOLD"
+            ){
 
                 setTimeout(
                     function(){
@@ -1156,9 +1224,11 @@ async function claimAndCopy(field){
             }
 
         }
+
         else{
 
-            button.disabled = false;
+            button.disabled =
+                false;
 
             button.innerText =
                 "COPY";
@@ -1166,12 +1236,17 @@ async function claimAndCopy(field){
         }
 
     }
+
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
 
 
-        button.disabled = false;
+        button.disabled =
+            false;
+
 
         button.innerText =
             "COPY";
@@ -1191,10 +1266,14 @@ async function claimAndCopy(field){
    COPY TEXT
 ================================================== */
 
-async function copyText(field){
+async function copyText(
+    field
+){
 
     const input =
-        document.getElementById(field);
+        document.getElementById(
+            field
+        );
 
 
     const text =
@@ -1213,16 +1292,22 @@ async function copyText(field){
             );
 
         }
+
         else{
 
-            fallbackCopy(text);
+            fallbackCopy(
+                text
+            );
 
         }
 
     }
+
     catch(error){
 
-        fallbackCopy(text);
+        fallbackCopy(
+            text
+        );
 
     }
 
@@ -1234,7 +1319,9 @@ async function copyText(field){
    FALLBACK COPY
 ================================================== */
 
-function fallbackCopy(text){
+function fallbackCopy(
+    text
+){
 
     const textarea =
         document.createElement(
@@ -1271,9 +1358,12 @@ function fallbackCopy(text){
         );
 
     }
+
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
 
     }
 
